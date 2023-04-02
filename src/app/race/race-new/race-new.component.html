@@ -1,0 +1,35 @@
+<div class="container text-center">
+  <form class="row" novalidate>
+    <div class="col-md-6">
+      <label for="name" class="form-label">Nome Gara</label>
+      <input type="text" class="form-control" id="name" required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label for="dp">Data &nbsp;</label>
+      <div class="input-group" style="margin-top: 7px;">
+        <input class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #d="ngbDatepicker"
+          (dateSelect)="onDateSelect($event)" />
+        <button class="btn btn-outline-primary bi-calendar3" (click)="d.toggle()" type="button"></button>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label for="validationCustom03" class="form-label">Pista</label>
+      <input type="text" class="form-control" id="validationCustom03" required>
+      <div class="invalid-feedback">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="input-group">
+        <label for="time" class="form-label">&nbsp;</label>
+        <ngb-timepicker style="margin-top: -7px" [(ngModel)]="time" name="time"></ngb-timepicker>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit">Submit form</button>
+    </div>
+  </form>
+</div>

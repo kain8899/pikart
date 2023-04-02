@@ -1,0 +1,49 @@
+<div class="container">
+  <label>Lista dei teams</label>
+  <div class="col offset-6">
+
+    <a class="btn btn-outline-primary" routerLink="/race/add" routerLinkActive="active"><i
+        class="fa-solid fa-plus"></i></a>
+  </div>
+
+  <div class="row">
+
+    <div class="table-responsive text-nowrap">
+      <table datatable [dtOptions]="dtOptions" class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Azioni</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>1</th>
+            <td>Team1</td>
+            <td><a class="btn text-white btn-floating m-1" style="background-color: #0956fb;" href="#!" role="button"><i
+                  class="fa fa-pencil"></i></a></td>
+          </tr>
+          <tr>
+            <th>2</th>
+            <td>Team2</td>
+            <td><a class="btn text-white btn-floating m-1" style="background-color: #0956fb;" href="#!" role="button"><i
+                  class="fa fa-pencil"></i></a></td>
+          </tr>
+          <tr>
+            <th>3</th>
+            <td>Team3</td>
+            <td><a class="btn text-white btn-floating m-1" style="background-color: #0956fb;" href="#!" role="button"><i
+                  class="fa fa-pencil"></i></a></td>
+          </tr>
+          <tr>
+            <th>4</th>
+            <td>Team4</td>
+            <td><a class="btn text-white btn-floating m-1" style="background-color: #0956fb;" href="#!" role="button"><i
+                  class="fa fa-pencil"></i></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

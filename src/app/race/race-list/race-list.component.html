@@ -1,0 +1,31 @@
+<div class="container text-center">
+  <a class="btn btn-outline-primary" routerLink="/race/add" routerLinkActive="active"><i
+      class="fa-solid fa-plus"></i></a>
+  <div class="table-responsive text-nowrap">
+    <table datatable [dtOptions]="dtOptions" class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Pista</th>
+          <th scope="col">Data Inizio</th>
+          <th scope="col">Durata</th>
+          <th scope="col">Data Inizio Effettivo</th>
+          <th scope="col">Azioni</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>1</th>
+          <td>Gara Endurance 4h Iscaro</td>
+          <td>Iscaro</td>
+          <td>23/03/2023</td>
+          <td>2h</td>
+          <td>23/03/2023 20:30:14</td>
+          <td><a class="btn text-white btn-floating m-1" style="background-color: #0956fb;" href="#!" role="button"><i
+                class="fa fa-pencil"></i></a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
