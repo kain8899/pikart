@@ -1,9 +1,8 @@
-
 import { RaceNewComponent } from './race-new/race-new.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http'
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule, NgbTimepicker } from '@ng-bootstrap/ng-bootstrap';
 
 import { RaceComponent } from './race.component';
@@ -12,7 +11,6 @@ import { RaceDetailComponent } from './race-detail/race-detail.component';
 import { RacePageRoutingModule } from './race-routing.module';
 import { RaceListComponent } from './race-list/race-list.component';
 import { RaceEditComponent } from './race-edit/race-edit.component';
-
 
 import { DataTablesModule } from 'angular-datatables';
 
@@ -23,14 +21,15 @@ import { DataTablesModule } from 'angular-datatables';
     RaceComponent,
     RaceNewComponent,
     RaceEditComponent,
-
   ],
   imports: [
     FormsModule,
+    ReactiveFormsModule,
     NgbModule,
     CommonModule,
+    HttpClientModule,
     RacePageRoutingModule,
-    DataTablesModule
-  ]
+    DataTablesModule,
+  ],
 })
-export class RaceModule { }
+export class RaceModule {}

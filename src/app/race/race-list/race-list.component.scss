@@ -1,0 +1,15 @@
+th.dt-center,
+td.dt-center {
+  text-align: center !important;
+}
+/* Stop Line Break inside Cell */
+.dt-body-nowrap {
+  white-space: nowrap;
+}
+
+table.dataTable thead th,
+table.dataTable thead td,
+table.dataTable tfoot th,
+table.dataTable tfoot td {
+  text-align: center;
+}

@@ -1,30 +1,70 @@
 <div class="container text-center">
-  <form class="row" novalidate>
+  <form class="row" [formGroup]="raceForm" novalidate (ngSubmit)="submit()">
+    <!-- begin::Alert error-->
+    <ng-container *ngIf="hasError">
+      <div class="mb-lg-15 alert alert-danger">
+        <div class="alert-text font-weight-bold">
+          The login details are incorrect
+        </div>
+      </div>
+    </ng-container>
+    <!-- end::Alert error-->
     <div class="col-md-6">
       <label for="name" class="form-label">Nome Gara</label>
-      <input type="text" class="form-control" id="name" required>
-      <div class="valid-feedback">
-        Looks good!
-      </div>
+      <input
+        formControlName="nome"
+        type="text"
+        class="form-control"
+        required
+        autocomplete="off"
+        [ngClass]="{
+          'is-invalid': raceForm.controls['nome'].invalid,
+          'is-valid': raceForm.controls['nome'].valid
+        }"
+      />
+      <ng-container
+        [ngTemplateOutlet]="formError"
+        [ngTemplateOutletContext]="{
+          validation: 'required',
+          message: 'Nome Gara è obbligatorio',
+          control: raceForm.controls['nome']
+        }"
+      ></ng-container>
     </div>
     <div class="col-md-6">
       <label for="dp">Data &nbsp;</label>
-      <div class="input-group" style="margin-top: 7px;">
-        <input class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #d="ngbDatepicker"
-          (dateSelect)="onDateSelect($event)" />
-        <button class="btn btn-outline-primary bi-calendar3" (click)="d.toggle()" type="button"></button>
+      <div class="input-group" style="margin-top: 7px">
+        <input
+          type="date"
+          class="form-control"
+          placeholder="yyyy-mm-dd"
+          name="dp"
+          formControlName="data_inizio"
+          (dateSelect)="onDateSelect($event)"
+        />
       </div>
     </div>
     <div class="col-md-6">
-      <label for="validationCustom03" class="form-label">Pista</label>
-      <input type="text" class="form-control" id="validationCustom03" required>
-      <div class="invalid-feedback">
-      </div>
+      <label for="pista" class="form-label">Pista</label>
+      <select
+        class="js-example-basic-single js-states form-control"
+        id="select_test"
+      >
+        <option id="1">Value1</option>
+        <option id="2">Value2</option>
+        <option id="3">Value3</option>
+      </select>
+
+      <div class="invalid-feedback"></div>
     </div>
     <div class="col-md-6">
       <div class="input-group">
         <label for="time" class="form-label">&nbsp;</label>
-        <ngb-timepicker style="margin-top: -7px" [(ngModel)]="time" name="time"></ngb-timepicker>
+        <ngb-timepicker
+          style="margin-top: -7px"
+          formControlName="durata"
+          name="time"
+        ></ngb-timepicker>
       </div>
     </div>
 
@@ -33,3 +73,19 @@
     </div>
   </form>
 </div>
+<ng-template
+  #formError
+  let-control="control"
+  let-message="message"
+  let-validation="validation"
+>
+  <ng-container
+    *ngIf="control.hasError(validation) && (control.dirty || control.touched)"
+  >
+    <div class="fv-plugins-message-container">
+      <span role="alert">
+        {{ message }}
+      </span>
+    </div>
+  </ng-container>
+</ng-template>
