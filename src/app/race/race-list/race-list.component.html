@@ -1,7 +1,37 @@
 <div class="container text-center">
-  <a class="btn btn-outline-primary" routerLink="/race/add" routerLinkActive="active"><i
-      class="fa-solid fa-plus"></i></a>
-  <div class="table-responsive text-nowrap">
+  <a
+    class="btn btn-outline-primary"
+    routerLink="/race/add"
+    routerLinkActive="active"
+    ><i class="fa-solid fa-plus"></i
+  ></a>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <!-- <ng-container *ngIf="isLoading$ | async">
+      <span class="indicator-progress" [style.display]="'block'">
+        Please wait...
+        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+      </span>
+    </ng-container>
+    <ng-container *ngIf="(isLoading$ | async) === false">
+      <span class="indicator-label">Continue</span>
+    </ng-container> -->
+    <div *ngFor="let race of listRace" class="col">
+      <div class="card h-100">
+        <!-- <img src="..." class="card-img-top" alt="..." /> -->
+        <div class="card-body">
+          <h5 class="card-title">{{ race.nome }}</h5>
+          <p class="card-text"><strong>Pista: </strong> {{ race.pista }}</p>
+          <p class="card-text">
+            <strong>Data: </strong
+            >{{ race.data.toISOString() | date : "dd/MM/yyyy HH:mm" }}
+          </p>
+          <p class="card-text"><strong>Durata: </strong> {{ race.durata }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--
+      <div class="table-responsive text-nowrap">
     <table datatable [dtOptions]="dtOptions" class="table table-striped">
       <thead>
         <tr>
@@ -27,5 +57,5 @@
         </tr>
       </tbody>
     </table>
-  </div>
+  </div> -->
 </div>
